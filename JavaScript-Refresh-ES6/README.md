@@ -1,4 +1,4 @@
-### ZAPISAĆ
+# ZAPISAĆ
 
 1. Używać Live Servera
 2. Prettier OP
