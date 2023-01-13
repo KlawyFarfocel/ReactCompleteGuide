@@ -6,7 +6,7 @@
 
 - [x] Section 1: Getting Started
 - [ ] Section 2: JavaScript Refresher
-  - ###### TODO:
+  - TODO:
     - [ ] README.md do Operators
     - [ ] README.md do Destructurizing
 - [ ] Section 3: React Basics & Working with Components
