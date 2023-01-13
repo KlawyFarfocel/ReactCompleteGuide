@@ -9,3 +9,4 @@
   - ### TODO:
     - [ ] README.md do Operators
     - [ ] README.md do Destructurizing
+- [ ] Section 3: React Basics & Working with Components
