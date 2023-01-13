@@ -5,7 +5,7 @@
 ### Finished Sections:
 
 - [x] Section 1: Getting Started
-- [] Section 2: JavaScript Refresher
+- [ ] Section 2: JavaScript Refresher
   - ### TODO:
-    - [] README.md do Operators
-    - [] README.md do Destructurizing
+    - [ ] README.md do Operators
+    - [ ] README.md do Destructurizing
