@@ -10,13 +10,15 @@ function ExpenseItem(props) {
     }
     
     return (
-        <div className="expense-item">
-            <ExpenseDate date={props.date}/>
-            <div className="expense-item__description">
-                <h2 className="fs-1">{title}</h2>
+        <li>
+            <div className="expense-item">
+                <ExpenseDate date={props.date}/>
+                <div className="expense-item__description">
+                    <h2 className="fs-1">{title}</h2>
+                </div>
+                <button onClick={btnPressHandler}>Change title</button>
             </div>
-            <button onClick={btnPressHandler}>Change title</button>
-        </div>
+        </li>
     );
 }
 export default ExpenseItem;
