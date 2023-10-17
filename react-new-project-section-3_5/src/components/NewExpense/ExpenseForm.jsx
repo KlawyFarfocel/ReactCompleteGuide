@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./styles/ExpenseForm.css"
-export default function ExpenseForm(){
+export default function ExpenseForm(props){
     const [title,setTitle]=useState("")
     const [amount,setAmount]=useState(0.00)
-    const [date,setDate]=useState(new Date)
+    const [date,setDate]=useState(new Date())
 
     //Handlers
     const titleChangeHandler=(event)=>{
@@ -23,7 +23,7 @@ export default function ExpenseForm(){
             amount: amount,
             date: new Date(date)
         }
-        console.log(expenseData)
+        props.onSaveExpenseData(expenseData)
         setTitle("")
         setAmount("")
         setDate("")
