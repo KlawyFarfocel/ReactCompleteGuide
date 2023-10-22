@@ -14,17 +14,12 @@ export default function SavingsResultTable(props){
         </thead>
         <tbody>
             {
-                (props.yearlyData.length>0
-                    ?
-                    props.yearlyData.map((data,key) =>{
-                        return(
-                            <SavingsResult key={key} data={data}/>
-                        )
-                        
-                    })
-                    :
-                    ""
-                )
+                props.yearlyData.map((data,key) =>{
+                    return(
+                        <SavingsResult key={key} data={data}/>
+                    )
+                    
+                })
             }
         </tbody>
       </table>

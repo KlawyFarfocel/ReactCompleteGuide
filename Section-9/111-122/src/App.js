@@ -6,11 +6,12 @@ import SavingsResultTable from './components/SavingsResultTable';
 function App() {
   const yearlyData = []; // per-year results
   const [updatedYearlyData,setUpdatedYearlyData]=useState([]);
+  const [userInput,setUserInput]=useState()
   const calculateHandler = (e,userInput) => {
     // Should be triggered when form is submitted
     e.preventDefault();
     // You might not directly want to bind it to the submit event on the form though...
-
+    setUserInput(userInput);
     let currentSavings = +userInput['current-savings']; // feel free to change the shape of this input object!
     const yearlyContribution = +userInput['yearly-contribution']; // as mentioned: feel free to change the shape...
     const expectedReturn = +userInput['expected-return'] / 100;
@@ -43,7 +44,12 @@ function App() {
       </header>
 
       <SavingsForm onCalculateClick={calculateHandler} onResetClick={resetHandler}/>
-      <SavingsResultTable yearlyData={updatedYearlyData}/>
+      {(!userInput?
+        <p style={{textAlign:"center"}}>No investment yet!</p>
+        :
+        <SavingsResultTable yearlyData={updatedYearlyData}/>
+      )}
+      
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
 
