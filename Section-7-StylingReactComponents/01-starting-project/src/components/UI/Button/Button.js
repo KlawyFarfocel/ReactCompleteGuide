@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from "./Button.module.css";
 
-// ---------------------------------- STYLED MODULES
+// ---------------------------------- STYLED COMPONENTS
 // import styled from 'styled-components';
 // const Button=styled.button`
 //     width:100%;
@@ -30,7 +30,7 @@ import styles from "./Button.module.css";
 //   }
 // `;
 
-// ----------------------------------END OF STYLED MODULES
+// ----------------------------------END OF STYLED COMPONENTS
 
 // const Button = props => {
 //   return (
