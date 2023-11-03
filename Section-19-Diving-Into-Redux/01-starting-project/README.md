@@ -27,3 +27,4 @@ Components <b>never</b> directly manipulates data in store. Instead, to do that 
 Components <b>dispatches</b> actions, which describe actions, which reducer must perform. Redux forwards these actions to reducer function, and then this operation is performed. Reducer functions returns mutated data, and then store notifies components about the change, so they can update UI.
 ### Using Redux With React
 ### Working with Redux Toolkit
+It's a extra package that makes using Redux more convienient
