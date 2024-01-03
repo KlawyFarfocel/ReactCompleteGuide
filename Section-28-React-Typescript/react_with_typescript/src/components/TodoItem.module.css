@@ -1,0 +1,23 @@
+.item {
+  margin: 1rem 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  background-color: #f7f5ef;
+  display:flex;
+  align-items:center;
+}
+.item span{
+  flex-grow:1;
+}
+.item button{
+  background: #ff0000;
+  color:white;
+  padding: 8px;
+  border:none;
+  height:auto;
+  transition: background 0.2s
+}
+/* .item button:hover{
+  background:#8b0000;
+  transition: background 0.5s;
+} */
