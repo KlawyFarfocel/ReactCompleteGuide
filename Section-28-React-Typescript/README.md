@@ -111,4 +111,4 @@ function insertAtBegining<TArray>(array:TArray[],value:TArray){
 ```
 This new function uses new type [<T{id}> is a common naming convention] in which TypeScript will find the needed type and will treat the newArray like, for example, array:int[] instead of array:any[].
 ## Combining React & TypeScript
-For the sake of not keeping this readme too long to freely read, to know more about combining React and TypeScript, please refer to README.md file, located in "react_with_typescript" sub-directory or [click here] (https://github.com/KlawyFarfocel/ReactCompleteGuide/tree/main/Section-28-React-Typescript/First-React-TypeScript/first_app)
+For the sake of not keeping this readme too long to freely read, to know more about combining React and TypeScript, please refer to README.md file, located in "react_with_typescript" sub-directory or [click here](https://github.com/KlawyFarfocel/ReactCompleteGuide/tree/main/Section-28-React-Typescript/react_with_typescript)
