@@ -39,12 +39,56 @@ export default function DetailPage(){
     )
 }
 ```
-For the first glance, it looks like the standard React code. However we are using here the useRouter method from the next library. It allows us to get into the properties of this router. In this example, the "query" property includes a lot of properies form we can choose. newsId, which we specified in the square brackets means, that no matter what we will write in the URL, it will be displayed as the <h2> text. 
+For the first glance, it looks like the standard React code. However we are using here the useRouter method from the next library. It allows us to get into the properties of this router. In this example, the "query" property includes a lot of properies form we can choose. newsId, which we specified in the square brackets means, that no matter what we will write in the URL, it will be displayed as the ```<h2>``` text. 
 For example "localhost:3000/news/foo-bar" would result in the text "foo-bar" displayed in h2. It can be useful, when we want to extract some sort of id, and then make request to server with this id, so we can return exactly the one information we needed.
 ## Linking between pages
-To link between pages, we can of course use <a> element, but that would result in browser making request to the server, which is not ideal. While not traversing to other URL tree branches, we want the page to act like Single Page Application. In order to do so, we use another component built into the next library - Link
+To link between pages, we can of course use ```<a>```  element, but that would result in browser making request to the server, which is not ideal. While not traversing to other URL tree branches, we want the page to act like Single Page Application. In order to do so, we use another component built into the next library - Link
 
-<Link> works similiar to the one seen in React, however, these require the "href" prop, which, as it is self-explainatory, have to be path to the file we want. Links prevent default behaviour of browser, so it doesn't send any unnecessary requests. Instead, the Link would change the URL and content on page, so it looks like you changed the page.
+```<Link>``` works similiar to the one seen in React, however, these require the "href" prop, which, as it is self-explainatory, have to be path to the file we want. Links prevent default behaviour of browser, so it doesn't send any unnecessary requests. Instead, the Link would change the URL and content on page, so it looks like you changed the page.
 
+## _app.js
+_app.js is special file which, when added to /pages directory, act like the wrapper around all content. Thanks to that, we can use it for example, to manage layout on our page, so we don't have to add it manually to every page. Let's have look at this:
+```javascript
+export default function MyApp({Component, pageProps}){
+    return(
+        <Layout>
+            <Component {...pageProps}/>
+        </Layout>
+    ) 
+}
+```
+Layout is a custom component built - the function receives two arguments - Component and pageProps.
+## Imperative Navigation
+Imperative Navigation refers to the proccess in which we directly use the useRouter() built in NextJS to render the other components. Let's have a look:
+```javascript
+  const router=useRouter()
+  function showDetailsHandler(){
+    router.push("/"+props.id)
+  }
+```
+In this example, we directly state, that after the button is pressed, we navigate to /{id} page.
 ## Page Pre-rendering
-## Data Fetching & Adding on API
+### Two forms of Pre-Rendering
+- Static Generation
+With static generation, the page is not pre-rendering when request is sent, but it is pre-rendered when the developer builds the site for production. So, after deployment, the pre-rendered page **does not change**. If the page content has been changed, the build process have to be started again.
+
+getStaticProps()
+With this built-in function, we can set-up the Static Generation process. It always have to return an object. The data that we want to send is stored in the "props" property which is also an object.
+
+The issue with the static generation, as mentioned before, is that page is generating during building phase, so it isn't always the newest version of page, especially when the data on page changes frequently. That's then the property called "revalidate" comes into play. revalidate wants a number of seconds, after this it will reload the pre-built page, as long as there will be requests for that page.
+
+### getStaticPaths()
+- fallback
+
+- Server-side Rendering
+Sometimes, the regular updates are not enough. Sometimes, there is a need for pre-generating page dynamically every time that there is a request for that page. The alternative to getStaticProps function is **getServerSideProps()**
+As before, this function returns an object aswell, with similar parameters as before, without the revalidate part, cuz it is not needed, as it is regenerating on every request anyway.
+
+However, the getServerSideProps() function have to be used carefully - mostly with the data that changes all the time, or when you really need the response and request data [stored in the context.req and context.res] for the example, where there is a need for authenticating.
+
+In other cases, the Static Generation is better choice, mostly because there will be no need to wait for regenerating the page for every response, making the website work faster. The pre-built website could be cached on CDN for even faster response.
+## API Routes
+API Routes are special routes/pages, which don't return HTML code, but are about accepting incoming HTTP requests with JSON data attached to them, do something with the data, and return the JSON data. It allows building own API end points.
+
+In order to add API routes it is necessary to add the api folder inside of pages folder. NextJS will pick the .js files in this folder and convert them into API routes.
+The function inside of files there will only be called when there will be a request /api/{name-of-file}
