@@ -131,3 +131,34 @@ const router = createBrowserRouter([
 ]);
 ```
 In this example, setting the "index" property to true ensures, that this will work automatically for the path that ends with "/".
+## Data Fetching & Submission
+### Data Fetching with a loader()
+#### Loader() Data Usage
+#### Where to store loader() code?
+#### When are Loader() functions Executed?
+Loader functions are right when user is navigating to the page with the loader property specified. So, the data fetching is initiated as soon as the route transition is initiated. By default, React Router will wait for the loader to be finished before it renders the page with the fetched data. 
+
+Unfortunately, when delay occurs, user may think that something went wrong, because it isn't represented on the UI. However, React Router gives us tools to improve User Experience in this field.
+- ```useNavigation()```  
+   This hook, provided by React Router, gives us information, wheter we're currently in active transition or there isn't any transition going on.
+   This hook have many properties, but the most important is **state** property. This is simply a string which may be in three states:  
+   1.  **idle**  
+      We don't have any active route transitions.
+   2.  **loading**  
+      We have a active transition and are loading data.
+   3.  **submitting**   
+      We're submitting data.  
+
+  It is important to note, that the loading state would be visible on a page/component that is **ALREADY VISIBLE** on screen when the transition is started.
+  #### Returning respones in loader()
+  It's worth noting that loader() functions can actually return a ```Response```. Thanks to that we can make use of many properties of this object, like status. Whenever the loader() returns a Response, React Router automatically extract the data from Response when using ```useLoaderData()```. There is no need for manually extracting the data from ```fetch()``` Response.
+
+  #### What kind of code goes into loader() function?
+  It's important to understand that the loader function is still executed in browser, not on the backed. With that, there is a possibility of using all of browser's API, like localStorage and so on. However, because this isn't react component, it means that React Hooks can't be used there - it would violate Rules of Hooks.
+  #### Error Handling with Custom Errors
+  When it comes to handling errors in loader() function, we may use one of two approaches:  
+    1.  Simply returning new object and acting accordingly    
+    Like, for example, adding boolean "isError" to check if it truly was an error
+    2. Throwing an Error  
+       ```throw {message: "Could not fetch events!"};```
+       In this case, React Router will see that the error occured and will render the closest errorElement specified in the Route definition. This is where throwing ```<Response>``` comes helpful - with that we can set  the status prop, so we are able to create generic error Page.
