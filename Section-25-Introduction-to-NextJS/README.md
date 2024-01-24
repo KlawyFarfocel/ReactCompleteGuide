@@ -99,3 +99,11 @@ The function inside of files there will only be called when there will be a requ
 `<Head>`
 
 ## Deploying Next.JS app
+You can build you app by using next build [I will upload project to Vercel so I can omit that part]
+It seems like everything works, until you add new event, and new page - then, when trying to navigate to that page you will be hit with 404: Page not found. In order to fix this issue we would have to make use of Fallback Pages
+### Fallback Pages
+Thankfully, the answer is pretty easy - before in code, while returning paths object, we set "fallback" to false - it meant that the routes we've set are definite and there cannot be more routes. It worked in development, because we prefetch the routes before returning the object. Unfortunately, while building project, the pages are being generated.   
+
+So, to fix that issue, we can set the fallback property to either **blocking** or **true**. The difference between them is that **true will immediately return empty page when issue, then try to generate that page and after it it will send it to the client. ** In such case we have to manage this state, so the user won't see blank page.   
+
+On the other hand, when using **blocking, it will wait for the page to be generated and the navigate user to that page**.
