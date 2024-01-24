@@ -92,3 +92,10 @@ API Routes are special routes/pages, which don't return HTML code, but are about
 
 In order to add API routes it is necessary to add the api folder inside of pages folder. NextJS will pick the .js files in this folder and convert them into API routes.
 The function inside of files there will only be called when there will be a request /api/{name-of-file}
+
+### Getting Data From The Database
+
+### Metadata
+`<Head>`
+
+## Deploying Next.JS app
