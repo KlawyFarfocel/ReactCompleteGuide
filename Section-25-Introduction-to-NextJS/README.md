@@ -93,11 +93,10 @@ API Routes are special routes/pages, which don't return HTML code, but are about
 In order to add API routes it is necessary to add the api folder inside of pages folder. NextJS will pick the .js files in this folder and convert them into API routes.
 The function inside of files there will only be called when there will be a request /api/{name-of-file}
 
-### Getting Data From The Database
-
 ### Metadata
-`<Head>`
-
+While deploying the data it's worth to set the meta elements. It works great for search engines - you can provide them with description of your page etc, but it is beneficial for user expirience aswell - you can set the title and so on.   
+NextJS provides us with a  ```<Head>``` component, inside which we can define all the things, that we would set in the ```<head>``` part of HTML.
+ 
 ## Deploying Next.JS app
 You can build you app by using next build [I will upload project to Vercel so I can omit that part]
 It seems like everything works, until you add new event, and new page - then, when trying to navigate to that page you will be hit with 404: Page not found. In order to fix this issue we would have to make use of Fallback Pages

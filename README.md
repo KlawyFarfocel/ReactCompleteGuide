@@ -45,9 +45,13 @@
 [Click here for notes](https://github.com/KlawyFarfocel/ReactCompleteGuide/tree/main/Section-25-Introduction-to-NextJS)
 - [ ] Section 26: Animating React Apps
 - [x] Section 27: Testing React Apps [Unit Tests]  
-[Click here for notes](https://github.com/KlawyFarfocel/ReactCompleteGuide/tree/main/Section-27-Unit-Tests)
+[Click here for notes](https://github.com/KlawyFarfocel/ReactCompleteGuide/tree/main/Section-27-Unit-Tests)   
+- [x] Section 27a: React Patterns & Best Practises  
+[Click here for notes](https://github.com/KlawyFarfocel/ReactCompleteGuide/tree/main/Section-27a-React-Patterns-Best-Practises)
 - [x] Section 28: React + TypeScript  
 [Click here for notes](https://github.com/KlawyFarfocel/ReactCompleteGuide/tree/main/Section-28-React-Typescript)
 
 
 ## As of October 23rd 2023 - Couse has been updated - I will continue with new course path - the section which are legacy will now have prefix "OLD" - I will come and revisit them after course finish
+
+## As of Januarry 22nd 2024 - the Course has been updated [again]. This means that two section has been added and one updated. Because of overlapping section numbers i will use x.5 notation - for example Section 25.5-NextJS
