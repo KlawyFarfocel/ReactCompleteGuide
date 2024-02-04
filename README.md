@@ -52,6 +52,6 @@
 [Click here for notes](https://github.com/KlawyFarfocel/ReactCompleteGuide/tree/main/Section-28-React-Typescript)
 
 
-## As of October 23rd 2023 - Couse has been updated - I will continue with new course path - the section which are legacy will now have prefix "OLD" - I will come and revisit them after course finish
+## As of October 23rd 2023 - Couse has been updated - I will continue with new course path - the section which are legacy will now have suffix "OLD" - I will come and revisit them after course finish
 
 ## As of Januarry 22nd 2024 - the Course has been updated [again]. This means that two section has been added and one updated. Because of overlapping section numbers i will use x.5 notation - for example Section 25.5-NextJS
